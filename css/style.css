@@ -736,17 +736,17 @@ body.mobile-nav-active #mobile-nav-toggle {
 # Speakers Section
 --------------------------------------------------------------*/
 
-#speakers {
+#core {
   padding: 60px 0 30px 0;
 }
 
-#speakers .speaker {
+#core .core {
   position: relative;
   overflow: hidden;
   margin-bottom: 30px;
 }
 
-#speakers .speaker .details {
+#core .core .details {
   background: rgba(6, 12, 34, 0.76);
   position: absolute;
   left: 0;
@@ -757,52 +757,52 @@ body.mobile-nav-active #mobile-nav-toggle {
   transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
-#speakers .speaker .details h3 {
+#score .core .details h3 {
   color: #fff;
   font-size: 22px;
   font-weight: 600;
   margin-bottom: 5px;
 }
 
-#speakers .speaker .details p {
+#core .core .details p {
   color: #fff;
   font-size: 15px;
   margin-bottom: 10px;
   font-style: italic;
 }
 
-#speakers .speaker .details .social {
+#core .core .details .social {
   height: 30px;
 }
 
-#speakers .speaker .details a {
+#core .core .details a {
   color: #fff;
 }
 
-#speakers .speaker .details a:hover {
+#core .core .details a:hover {
   color: #0c4da2;
 }
 
-#speakers .speaker:hover .details {
+#core .core:hover .details {
   bottom: 0;
 }
 
-#speakers-details {
+#core-details {
   padding: 60px 0;
 }
 
-#speakers-details .details h2 {
+#core-details .details h2 {
   color: #112363;
   font-size: 28px;
   font-weight: 700;
   margin-bottom: 10px;
 }
 
-#speakers-details .details .social {
+#core-details .details .social {
   margin-bottom: 15px;
 }
 
-#speakers-details .details .social a {
+#core-details .details .social a {
   background: #e9edfb;
   color: #112363;
   line-height: 1;
@@ -814,16 +814,16 @@ body.mobile-nav-active #mobile-nav-toggle {
   padding-top: 9px;
 }
 
-#speakers-details .details .social a:hover {
+#core-details .details .core a:hover {
   background: #0c4da2;
   color: #fff;
 }
 
-#speakers-details .details .social a i {
+#core-details .details .social a i {
   font-size: 18px;
 }
 
-#speakers-details .details p {
+#core-details .details p {
   color: #112363;
   font-size: 15px;
   margin-bottom: 10px;

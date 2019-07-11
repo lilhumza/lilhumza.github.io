@@ -1,0 +1,80 @@
+<html>
+	<head>
+		<style type="text/css">
+			body {
+				font-family:'Source Code Pro';
+				font-size:5em;
+				background-color:#000;
+			}
+			#mask {
+				/*background-image:url(triangle_mask.png);
+				background-size:cover;
+				background-repeat:no-repeat;*/
+				
+				position:absolute;
+				top:0;
+				bottom:0;
+				left:0;
+				right:0;
+				z-index:10;
+			}
+			/*#d {
+				opacity:0.2;
+			}*/
+			#c, #d {
+				position:absolute;
+				padding:0;
+				margin:0;
+				transform:scaleX(-1);
+			}
+			#c, #d, #c_, #d_ {
+				white-space:pre;
+				width:3em;
+				height:1.5em;
+				text-align:center;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<!-- <span id="c"><span id="c_"></span></span> -->
+		<!-- <div id="mask"> -->
+			<span id="d"><span id="d_"></span></span>
+		<!-- </div> -->
+		<script type="text/javascript">
+			const LEN = 3;
+			const F_C = 7.5;
+			const R = 1; // px/s vertical
+			const F = 10.25;
+			const init = performance.now();
+			const colors = ['#fff', '#00f'];
+			let last = init;
+			let k = 0;
+			
+			const DUTY = 0.75; // first color is brighter; make it dimmer via duty
+			
+			// const c_ = document.getElementById('c_');
+			const d_ = document.getElementById('d_');
+			
+			// const c = document.getElementById('c');
+			const d = document.getElementById('d');
+			
+			const d_size = d.getBoundingClientRect();
+			
+			const W = window.innerWidth - d_size.width;
+			const H = window.innerHeight - d_size.height;
+			
+			const aspect = W / H;
+			console.log(init);
+			window.requestAnimationFrame(function tick() {
+				const next = performance.now();
+				if(((next - init) / 1000 - DUTY * (k % 2) / F_C) % (1 / F_C) < ((last - init) / 1000  - DUTY * (k % 2) / F_C) % (1 / F_C)) {
+					k++;
+					document.body.style.backgroundColor = colors[k % colors.length];
+				}
+				last = next;
+				window.requestAnimationFrame(tick);
+			});
+		</script>
+	</body>
+</html>

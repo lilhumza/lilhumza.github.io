@@ -1,0 +1,83 @@
+<html>
+	<head>
+		<style type="text/css">
+			body, html {
+				width:100%;
+				height:100%;
+				margin:0;
+				background-color:#FFF;
+				font-size:3em;
+				font-family:'Source Code Pro';
+				font-weight:500;
+				text-align:justify;
+			}
+			* {
+				box-sizing:border-box;
+			}
+			body > .b, body.e > .a {
+				background-color:#F00;
+			}
+			body > .a, body.e > .b {
+				background-color:#00F;
+			}
+			span {
+				height:50%;
+				width:50%;
+				display:inline-block;
+			}
+		</style>
+		<!-- <script type="text/javascript" src="parula.js"></script> -->
+	</head>
+	
+	<body>
+		<span class="a"></span><span class="b"></span><span class="b"></span><span class="a"></span>
+		<script type="text/javascript">
+			window.addEventListener('load', e => {
+				// const ws = new WebSocket(`ws://${window.location.hostname}:3000/`);
+				let intensity = 0;
+				// ws.addEventListener('message', e => {intensity = parseInt(e.data)});
+				const init = performance.now();
+				let last = init;
+				let i = 0;
+				let j = 2;
+				const v = [1, 0, 0, 1];
+				const F_C = 15;
+				// const F = 4.75; // # oscillations of the horizontal
+				const W = window.innerWidth;
+				const H = window.innerHeight;
+				const GRID_SIZE = 50;
+				const R = 20; // W * H / GRID_SIZE / GRID_SIZE / 6; // px/s vertical
+				const F = H / GRID_SIZE / 2;
+				const aspect = W / H;
+				console.log(Date.now());
+				let break_length = 0;
+				const breaks = [];
+				() => window.addEventListener('keyup', e => {
+					const N = Date.now();
+					if(breaks.length % 2) {
+						break_length += N - breaks[breaks.length - 1];
+					}
+					
+					breaks.push(Date.now());
+				});
+				const classes = ['e', ''];
+				window.requestAnimationFrame(function tick() {
+					let t = 0;
+					const next = performance.now();
+					let init_ = init;
+					if(breaks.length > 0)
+						init_ += break_length;
+					
+					if((next - init_) % (1000 / F_C) < (last - init_) % (1000 / F_C)) { //  && !(breaks.length % 2)
+						j++;
+						i++;
+						const idx = (i % 2); // ^ v[j];
+						document.body.className = classes[idx];
+					}
+					last = next;
+					window.requestAnimationFrame(tick);
+				}, 0);
+			});
+		</script>
+	</body>
+</html>

@@ -6,7 +6,7 @@
 				width:100%;
 				height:100%;
 				margin:0;
-				background-color:#FFF;
+				background-color:#000;
 				font-size:3em;
 				font-family:'Source Code Pro';
 				font-weight:500;
@@ -15,15 +15,15 @@
 			* {
 				box-sizing:border-box;
 			}
-			body > .b, body.e > .a {
+			body .b, body.e .a {
 				background-color:#F00;
 			}
-			body > .a, body.e > .b {
+			body .a, body.e .b {
 				background-color:#00F;
 			}
 			span {
-				height:50%;
-				width:50%;
+				height:10%;
+				width:10%;
 				display:inline-block;
 			}
 		</style>
@@ -31,7 +31,12 @@
 	</head>
 	
 	<body>
-		<span class="a"></span><span class="b"></span><span class="b"></span><span class="a"></span>
+		<div>
+			<span class="a"></span><span class="b"></span>
+		</div>
+		<div>
+			<span class="b"></span><span class="a"></span>
+		</div>
 		<script type="text/javascript">
 			window.addEventListener('load', e => {
 				// const ws = new WebSocket(`ws://${window.location.hostname}:3000/`);
